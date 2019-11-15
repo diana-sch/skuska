@@ -28,6 +28,10 @@ def gettime():
 def show_bus(line):
     return render_template('bus-lines.html', line=line)
 
+##########nova funckia
+# def funkcia():
+#     return xyz
+
 
 
 
