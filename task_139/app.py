@@ -23,16 +23,14 @@ def show_bus(line):
 def spoje():
     if request.method == 'POST':
         if request.is_json:
-            key = request.json.get("printme")
-            # if key == "busy":
-            #     return jsonify(data["busy"])
-            # if key == "elektricky":
-            #     return jsonify(data["elektricky"])
+            key = request.json.get("show")
             # #return "JSON received", 200
             # #return jsonify(req)
             return jsonify(data[key])
         else:
             return "not a JSON", 400
+    else:
+        return "None"
 
 
 data = {
