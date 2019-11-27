@@ -33,6 +33,46 @@ def spoje():
         return "None"
 
 
+@app.route('/user', methods=['GET', 'POST'])
+def user():
+    if request.method == 'POST':
+        if request.is_json:
+            jsonbbject = request.json
+
+            print(jsonbbject)
+            f = open("persons.txt", "a")
+            for key in jsonbbject:
+                value = jsonbbject[key]
+                f.write(key + ": " + value + "\n")
+            f.write("\n")
+            f.close()
+            return "JSON received", 200
+        else:
+            return "not a JSON", 400
+    else:
+        return "None"
+
+
+# def add_person():
+#     jsonbject = person
+#     f = open("text.txt", "a")
+#     for key in jsonbbject:
+#         value = jsonbbject[key]
+#         f.write(key + ": " + value + "\n")
+#     f.write("\n")
+#     f.close()
+
+
+# add_person()
+person = {
+
+            "name" : "abc",
+            "surname" : "xyz",
+            "email" : "a@b.c",
+
+}
+
+
 data = {
     "busy": [
         {
